@@ -106,7 +106,7 @@
 #### 1. 克隆项目
 
 ```bash
-git clone https://github.com/your-repo/LiveManage.git
+git clone https://github.com/alonghack/LiveManage.git
 cd livestream-tool
 ```
 
