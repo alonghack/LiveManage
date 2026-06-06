@@ -1,0 +1,490 @@
+syntax = "proto3";
+
+package kwai.live.proto.ws;
+
+// ====================== 顶层消息定义 ======================
+message SocketMessage {
+  PayloadType payload_type = 1;
+  CompressionType compression_type = 2;
+  bytes payload = 3;
+
+  enum CompressionType {
+    UNKNOWN_COMPRESSION = 0;
+    NONE = 1;
+    GZIP = 2;
+    AES = 3;
+  }
+}
+
+// ====================== 消息类型枚举 ======================
+enum PayloadType {
+  UNKNOWN_PAYLOAD = 0;
+
+  // Client->Server 类型
+  CS_HEARTBEAT = 1;
+  CS_ERROR = 3;
+  CS_PING = 4;
+  CS_ENTER_ROOM = 200;
+  CS_USER_PAUSE = 201;
+  CS_USER_EXIT = 202;
+
+  // Server->Client 类型
+  SC_HEARTBEAT_ACK = 101;
+  SC_ECHO = 102;
+  SC_ERROR = 103;
+  SC_PING_ACK = 104;
+  SC_INFO = 105;
+  SC_ENTER_ROOM_ACK = 300;
+  SC_AUTHOR_PAUSE = 301;
+  SC_AUTHOR_RESUME = 302;
+  SC_PIP_STARTED = 305;
+  SC_PIP_ENDED = 306;
+  SC_FEED_PUSH = 310;
+  SC_REFRESH_WALLET = 312;
+  SC_RED_PACK_FEED = 330;
+  SC_LIVE_WATCHING_LIST = 340;
+  SC_SUSPECTED_VIOLATION = 355;
+  SC_GUESS_OPENED = 370;
+  SC_GUESS_CLOSED = 371;
+  SC_RIDE_CHANGED = 412;
+  SC_BET_CHANGED = 441;
+  SC_BET_CLOSED = 442;
+  SC_LIVE_SPECIAL_ACCOUNT_CONFIG_STATE = 645;
+  SC_LIVE_WARNING_MASK_STATUS_CHANGED_AUDIENCE = 758;
+  SC_COMMENT_ZONE_RICH_TEXT = 829;
+
+  SC_INTERACTIVE_CHAT_SWITCH_BIZ = 944;
+  SC_INTERACTIVE_CHAT_CLOSED = 776;
+  SC_LIVE_MULTI_PK_STATISTIC = 950;
+}
+
+// ====================== 通用结构 ======================
+message PicUrl {
+  string cdn = 1;
+  string url = 2;
+  string url_pattern = 3;
+  string ip = 4;
+}
+
+message SimpleUserInfo {
+  string principal_id = 1;
+  string user_name = 2;
+  string head_url = 3;
+}
+
+// ====================== 用户与观众相关消息 ======================
+message UserInfo {
+  uint64 user_id = 1;
+  string user_name = 2;
+  string user_gender = 3;
+  string user_text = 4;
+  repeated PicUrl head_urls = 5;
+  bool verified = 6;
+  string s_user_id = 7;
+  repeated PicUrl https_head_urls = 8;
+  string kwai_id = 9;
+}
+
+enum AssistantType {
+  UNKNOWN_ASSISTANT_TYPE = 0;
+  SUPER_ASSISTANT = 1;
+  JUNIOR_ASSISTANT = 2;
+}
+
+message LiveFansGroupState {
+  uint32 intimacy_level = 1;
+  uint32 enter_room_special_effect = 2;
+}
+
+message GzoneNameplate {
+  int64 id = 1;
+  string name = 2;
+  repeated PicUrl urls = 3;
+}
+
+message LiveAudienceState {
+  bool is_from_fans_top = 1;
+  bool is_koi = 2;
+  AssistantType assistant_type = 3;
+  uint32 fans_group_intimacy_level = 4;
+  GzoneNameplate nameplate = 5;
+  LiveFansGroupState live_fans_group_state = 6;
+  uint32 wealth_grade = 7;
+  string badge_key = 8;
+}
+
+// ====================== 房间进入相关消息 ======================
+message CSWebEnterRoom {
+  string token = 1;
+  string live_stream_id = 2;
+  uint32 reconnect_count = 3;
+  uint32 last_error_code = 4;
+  string exp_tag = 5;
+  string attach = 6;
+  string page_id = 7;
+}
+
+message SCWebEnterRoomAck {
+  uint64 min_reconnect_ms = 1;
+  uint64 max_reconnect_ms = 2;
+  uint64 heartbeat_interval_ms = 3;
+}
+
+// ====================== 心跳相关消息 ======================
+message CSWebHeartbeat {
+  uint64 timestamp = 1;
+}
+
+message SCWebHeartbeatAck {
+  uint64 timestamp = 1;
+  uint64 client_timestamp = 2;
+}
+
+// ====================== 错误消息 ======================
+message SCWebError {
+  uint32 code = 1;
+  string msg = 2;
+  uint32 sub_code = 3;
+}
+
+message CSWebError {
+  uint32 code = 1;
+  string msg = 2;
+}
+
+// ====================== 用户状态消息 ======================
+enum WebUserPauseType {
+  UNKNOWN_USER_PAUSE_TYPE = 0;
+  BACKGROUND = 1;
+}
+
+message CSWebUserPause {
+  uint64 time = 1;
+  WebUserPauseType pause_type = 2;
+}
+
+message CSWebUserExit {
+  uint64 time = 1;
+}
+
+enum WebPauseType {
+  UNKNOWN_PAUSE_TYPE = 0;
+  TELEPHONE = 1;
+  SHARE = 2;
+}
+
+message SCWebAuthorPause {
+  uint64 time = 1;
+  WebPauseType pause_type = 2;
+}
+
+message SCWebAuthorResume {
+  uint64 time = 1;
+}
+
+// ====================== 评论和礼物消息 ======================
+message SCWebPipStarted {
+  uint64 time = 1;
+}
+
+message SCWebPipEnded {
+  uint64 time = 1;
+}
+
+enum WebCommentFeedShowType {
+  FEED_SHOW_UNKNOWN = 0;
+  FEED_SHOW_NORMAL = 1;
+  FEED_HIDDEN = 2;
+}
+
+message WebCommentFeed {
+  string id = 1;
+  SimpleUserInfo user = 2;
+  string content = 3;
+  string device_hash = 4;
+  uint64 sort_rank = 5;
+  string color = 6;
+  WebCommentFeedShowType show_type = 7;
+  LiveAudienceState sender_state = 8;
+  uint64 time = 9;
+}
+
+message WebComboCommentFeed {
+  string id = 1;
+  string content = 2;
+  uint32 combo_count = 3;
+}
+
+message WebLikeFeed {
+  string id = 1;
+  SimpleUserInfo user = 2;
+  uint64 sort_rank = 3;
+  string device_hash = 4;
+}
+
+message WebSystemNoticeFeed {
+  string id = 1;
+  SimpleUserInfo user = 2;
+  uint64 time = 3;
+  string content = 4;
+  uint64 display_duration = 5;
+  uint64 sort_rank = 6;
+
+  enum DisplayType {
+    UNKNOWN_DISPLAY_TYPE = 0;
+    COMMENT_DISPLAY = 1;
+    ALERT_DISPLAY = 2;
+    TOAST_DISPLAY = 3;
+  }
+  DisplayType display_type = 7;
+}
+
+message WebShareFeed {
+  string id = 1;
+  SimpleUserInfo user = 2;
+  uint64 time = 3;
+  uint32 third_party_platform = 4;
+  uint64 sort_rank = 5;
+  AssistantType live_assistant_type = 6;
+  string device_hash = 7;
+}
+
+enum WebLiveAssistantType {
+  UNKNOWN_WEB_ASSISTANT_TYPE = 0;
+  SUPER_WEB_ASSISTANT = 1;
+  JUNIOR_WEB_ASSISTANT = 2;
+}
+
+enum StyleType {
+  UNKNOWN_STYLE = 0;
+  BATCH_STAR_0 = 1;
+  BATCH_STAR_1 = 2;
+  BATCH_STAR_2 = 3;
+  BATCH_STAR_3 = 4;
+  BATCH_STAR_4 = 5;
+  BATCH_STAR_5 = 6;
+  BATCH_STAR_6 = 7;
+}
+
+message WebGiftFeed {
+  string id = 1;
+  SimpleUserInfo user = 2;
+  uint64 time = 3;
+  uint32 gift_id = 4;
+  uint64 sort_rank = 5;
+  string merge_key = 6;
+  uint32 batch_size = 7;
+  uint32 combo_count = 8;
+  uint32 rank = 9;
+  uint64 expire_duration = 10;
+  uint64 client_timestamp = 11;
+  uint64 slot_display_duration = 12;
+  uint32 star_level = 13;
+  StyleType style_type = 14;
+  WebLiveAssistantType live_assistant_type = 15;
+  string device_hash = 16;
+  bool danmaku_display = 17;
+}
+
+message SCWebFeedPush {
+  string display_watching_count = 1;
+  string display_like_count = 2;
+  uint64 pending_like_count = 3;
+  uint64 push_interval = 4;
+  repeated WebCommentFeed comment_feeds = 5;
+  string comment_cursor = 6;
+  repeated WebComboCommentFeed combo_comment_feed = 7;
+  repeated WebLikeFeed like_feeds = 8;
+  repeated WebGiftFeed gift_feeds = 9;
+  string gift_cursor = 10;
+  repeated WebSystemNoticeFeed system_notice_feeds = 11;
+  repeated WebShareFeed share_feeds = 12;
+}
+
+// ====================== 红包相关消息 ======================
+message SCWebRefreshWallet {}
+
+enum WebRedPackCoverType {
+  UNKNOWN_COVER_TYPE = 0;
+  NORMAL_COVER = 1;
+  PRETTY_COVER = 2;
+}
+
+message WebRedPackInfo {
+  string id = 1;
+  SimpleUserInfo author = 2;
+  uint64 balance = 3;
+  uint64 open_time = 4;
+  uint64 current_time = 5;
+  string grab_token = 6;
+  bool need_send_request = 7;
+  uint64 request_delay_millis = 8;
+  uint64 luckiest_delay_millis = 9;
+  WebRedPackCoverType cover_type = 10;
+}
+
+message SCWebCurrentRedPackFeed {
+  repeated WebRedPackInfo red_pack = 1;
+}
+
+// ====================== 观众列表消息 ======================
+message WebWatchingUserInfo {
+  SimpleUserInfo user = 1;
+  bool offline = 2;
+  bool tuhao = 3;
+  WebLiveAssistantType live_assistant_type = 4;
+  string display_ks_coin = 5;
+}
+
+message SCWebLiveWatchingUsers {
+  repeated WebWatchingUserInfo watching_user = 1;
+  string display_watching_count = 2;
+  uint64 pending_duration = 3;
+}
+
+// ====================== 其他消息类型 ======================
+message SCWebSuspectedViolation {
+  bool suspected_violation = 1;
+}
+
+message SCWebGuessOpened {
+  uint64 time = 1;
+  string guess_id = 2;
+  uint64 submit_deadline = 3;
+  uint64 display_max_delay_millis = 4;
+}
+
+message SCWebGuessClosed {
+  uint64 time = 1;
+  string guess_id = 2;
+  uint64 display_max_delay_millis = 3;
+}
+
+message SCWebRideChanged {
+  string ride_id = 1;
+  uint32 request_max_delay_millis = 2;
+}
+
+message SCWebBetChanged {
+  uint64 max_delay_millis = 1;
+}
+
+message SCWebBetClosed {
+  uint64 max_delay_millis = 1;
+}
+
+enum ConfigSwitchType {
+  UNKNOWN_CONFIG_SWITCH = 0;
+  HIDE_BARRAGE = 1;
+  HIDE_SPECIAL_EFFECT = 2;
+}
+
+message ConfigSwitchItem {
+  ConfigSwitchType config_switch_type = 1;
+  bool value = 2;
+}
+
+message SCWebLiveSpecialAccountConfigState {
+  repeated ConfigSwitchItem config_switch_item = 1;
+  uint64 timestamp = 2;
+}
+
+message LiveCdnNodeView {
+  string cdn = 1;
+  string url = 2;
+  bool free_traffic = 3;
+}
+
+message AuditAudienceMask {
+  repeated LiveCdnNodeView icon_cdn_node_view = 1;
+  string title = 2;
+  string detail = 3;
+}
+
+message SCLiveWarningMaskStatusChangedAudience {
+  bool display_mask = 1;
+  AuditAudienceMask warning_mask = 2;
+}
+
+// ====================== 丰富评论消息 ======================
+message TextStyle {
+  uint32 color = 1;
+}
+
+message CommentTextSegment {
+  string text = 1;
+  TextStyle text_style = 2;
+}
+
+message CommentIconSegment {
+  string res_pack_id = 1;
+  string icon_name = 2;
+  string text = 3;
+  TextStyle text_style = 4;
+}
+
+message CommentGiftSegment {
+  uint32 gift_id = 1;
+}
+
+message CommentImageSegment {
+  repeated PicUrl url = 1;
+  uint32 width = 2;
+  uint32 height = 3;
+}
+
+message CommentRichTextSegment {
+  CommentTextSegment text_segment = 1;
+  CommentIconSegment icon_segment = 2;
+  CommentGiftSegment gift_segment = 3;
+  CommentImageSegment image_segment = 4;
+}
+
+message CommentRichTextMessage {
+  string id = 1;
+  uint64 user_id = 2;
+  uint64 server_timestamp = 3;
+  string device_hash = 4;
+  repeated CommentRichTextSegment segment = 7;
+}
+
+message SCCommentZoneRichText {
+  repeated CommentRichTextMessage message = 1;
+}
+
+// ====================== 互动聊天消息 ======================
+message InteractiveChatBizIdentity {
+  uint64 biz_type = 1;
+  string chat_id = 2;
+  string biz_id = 3;
+}
+
+message InteractiveChatRoomInfo {
+  uint64 biz_identity = 1;
+  uint64 version = 4;
+}
+
+message SCInteractiveChatSwitchBiz {
+  InteractiveChatRoomInfo room_info = 1;
+  uint64 timestamp = 4;
+  uint64 version = 5;
+}
+
+message SCInteractiveChatClosed {
+  InteractiveChatBizIdentity biz_identity = 1;
+  UserInfo user_info = 2;
+  uint64 timestamp = 4;
+  uint64 version = 5;
+}
+
+// ====================== 直播PK统计消息 ======================
+message SCLiveMultiPkStatistic {
+  string pk_id = 1;
+  uint64 time = 2;
+  uint64 statistic_version = 7;
+}
+
+message SCInfo {
+  uint32 code = 1;
+  string msg = 2;
+}

@@ -1,0 +1,132 @@
+{
+  "target_url": "https://live.kuaishou.com/u/xiyuan520025",
+  "captured_requests": [
+    {
+      "url": "https://live.kuaishou.com/live_api/liveroom/websocketinfo?__NS_hxfalcon=HUDR_sFnX-DtsB0FXsbDPT3TMP-sk0ishB7ND_Bxe3L3K-RS7eNsXai_ut5POQayfk4twoEaCZi52Qvk2IT0zmpjb_OtO8KEdgwI4YxbBVQWtmsiu3BGqZ7ljcDE-yd94VTQFFbMSfEiPzu2FPQ1TiQbETHvK50pbjNtJ-bUlhQif$HE_061980e4e61f2374ecd44caec796527bb34c4d4d4d4c92d5e1f756916ff910e83e24d44cd61b7397361b73a54d&caver=2&liveStreamId=HXnFHeQKE6w",
+      "method": "GET",
+      "query_params": {
+        "__NS_hxfalcon": "HUDR_sFnX-DtsB0FXsbDPT3TMP-sk0ishB7ND_Bxe3L3K-RS7eNsXai_ut5POQayfk4twoEaCZi52Qvk2IT0zmpjb_OtO8KEdgwI4YxbBVQWtmsiu3BGqZ7ljcDE-yd94VTQFFbMSfEiPzu2FPQ1TiQbETHvK50pbjNtJ-bUlhQif$HE_061980e4e61f2374ecd44caec796527bb34c4d4d4d4c92d5e1f756916ff910e83e24d44cd61b7397361b73a54d",
+        "caver": "2",
+        "liveStreamId": "HXnFHeQKE6w"
+      },
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://live.kuaishou.com/u/xiyuan520025",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "baggage": "sentry-environment=prod,sentry-release=b025461",
+        "sentry-trace": "82daf36502994485b6b1f5792ca6ffef-8b49293c736ff6df-0",
+        "user-agent": "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "kww": "PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+jPA80G0+SPfclGApfPBP7+/c980H9+/LE+Bc9G/GIGfH7P0D78eb0+0pSG0cI+fzjPBGM+n8D+0Gh+/PAPeDA+epfPAPl80L78/L78/PI8BQSPnPIG9G7GAPU+/QDP0G="
+      },
+      "cookies": {
+        "kuaishou.live.bfb1s": "ac5f27b3b62895859c4c1622f49856a4",
+        "clientid": "3",
+        "did": "web_f00449397a1b35f3ba7ed6e1d32a07fdf66e",
+        "client_key": "65890b29",
+        "kpn": "GAME_ZONE",
+        "_did": "web_939815456F50D74D",
+        "kwpsecproductname": "PCLive",
+        "kwfv1": "PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+jPA80G0+SPfclGApfPBP7+/c980H9+/LE+Bc9G/GIGfH7P0D78eb0+0pSG0cI+fzjPBGM+n8D+0Gh+/PAPeDA+epfPAPl80L78/L78/PI8BQSPnPIG9G7GAPU+/QDP0G=",
+        "kwssectoken": "338T0Lvre/r33nZAMawDySmNfzTonN7XgGr4mAtrw75QycTPqAB75Pb0YyKlCLuMbDPZCZWSEUGpnNYHlvHxoQ==",
+        "kwscode": "8aad2d2b324e894df87afb11e3e354954b83d602bf936b28b41ffd3a68336160"
+      },
+      "session_page_id": "\"SiRBVCXdY9Pxs7xH_1759346520032\"",
+      "response": {
+        "status": 200,
+        "headers": {
+          "transfer-encoding": "chunked",
+          "x-ksclient-ip": "42.94.54.203",
+          "content-encoding": "gzip",
+          "date": "Wed, 01 Oct 2025 19:22:01 GMT",
+          "x-kslogid": "759346521334581507",
+          "content-type": "application/json; charset=utf-8",
+          "connection": "keep-alive"
+        },
+        "body": {
+          "data": {
+            "result": 400002,
+            "jsSdkUrl": "//static.yximgs.com/udata/pkg/fe/indentity-verification.umd.f6645615.js",
+            "url": "https://captcha.zt.kuaishou.com/iframe/index.html?captchaSession=Cgp6dC5jYXB0Y2hhEqYC4LAdJexr_AiXpehSMr4pHcbnQZpidhcfSK8k5CDnRTSVc_IyyNYy0OLTSMi7Dx4cW4aInCAZVV_5QPPxXnbKGMEMJ5UlQODPYlWsQoK1gxeEKQ7KquWiOHMb82EckTUYg8OpZF0NtrR3UWwsjNlg7fuY0bBJCdAnV6IviBvg7WMHm2lHGqXc6XsAdCBkIEzfJIQOT7H2Pq4Q10nylITq6stXWXxdqzrv1Wyac4V9nDBwWMVzEERMGgjwy4IjZN6SSIdOKk6lA-SFtQydaC_z6FQdRTa4cKkJ-VXAlbYW3wIoLhCrz2aKIAFCTFGdUBoQlhbn5b_Ou6YnB0ANJmENaGfJ_WIQVP9PMe82badtL8PYooIp4QfEfFYNpuPMJGFZJJShuIOjGhJiAklp4MGENNBMpNL4Oi-AIh8oBTAC&type=1&configUrl=https%3A%2F%2Fcaptcha.zt.kuaishou.com%2Frest%2Fzt%2Fcaptcha%2Fsliding%2Fconfig&bizName=ANTICRAWL_DEFAULT"
+          },
+          "error": [
+            {
+              "url": "webLiveAPI::/rest/k/live/websocket/info",
+              "errInfo": {
+                "result": 400002,
+                "error_url": "https://captcha.zt.kuaishou.com/iframe/index.html?captchaSession=Cgp6dC5jYXB0Y2hhEqYC4LAdJexr_AiXpehSMr4pHcbnQZpidhcfSK8k5CDnRTSVc_IyyNYy0OLTSMi7Dx4cW4aInCAZVV_5QPPxXnbKGMEMJ5UlQODPYlWsQoK1gxeEKQ7KquWiOHMb82EckTUYg8OpZF0NtrR3UWwsjNlg7fuY0bBJCdAnV6IviBvg7WMHm2lHGqXc6XsAdCBkIEzfJIQOT7H2Pq4Q10nylITq6stXWXxdqzrv1Wyac4V9nDBwWMVzEERMGgjwy4IjZN6SSIdOKk6lA-SFtQydaC_z6FQdRTa4cKkJ-VXAlbYW3wIoLhCrz2aKIAFCTFGdUBoQlhbn5b_Ou6YnB0ANJmENaGfJ_WIQVP9PMe82badtL8PYooIp4QfEfFYNpuPMJGFZJJShuIOjGhJiAklp4MGENNBMpNL4Oi-AIh8oBTAC&type=1&configUrl=https%3A%2F%2Fcaptcha.zt.kuaishou.com%2Frest%2Fzt%2Fcaptcha%2Fsliding%2Fconfig&bizName=ANTICRAWL_DEFAULT",
+                "error_msg": "",
+                "ztUnionVerifyUrl": "https://captcha.zt.kuaishou.com/iframe/index.html?captchaSession=Cgp6dC5jYXB0Y2hhEqYC4LAdJexr_AiXpehSMr4pHcbnQZpidhcfSK8k5CDnRTSVc_IyyNYy0OLTSMi7Dx4cW4aInCAZVV_5QPPxXnbKGMEMJ5UlQODPYlWsQoK1gxeEKQ7KquWiOHMb82EckTUYg8OpZF0NtrR3UWwsjNlg7fuY0bBJCdAnV6IviBvg7WMHm2lHGqXc6XsAdCBkIEzfJIQOT7H2Pq4Q10nylITq6stXWXxdqzrv1Wyac4V9nDBwWMVzEERMGgjwy4IjZN6SSIdOKk6lA-SFtQydaC_z6FQdRTa4cKkJ-VXAlbYW3wIoLhCrz2aKIAFCTFGdUBoQlhbn5b_Ou6YnB0ANJmENaGfJ_WIQVP9PMe82badtL8PYooIp4QfEfFYNpuPMJGFZJJShuIOjGhJiAklp4MGENNBMpNL4Oi-AIh8oBTAC&type=1&configUrl=https%3A%2F%2Fcaptcha.zt.kuaishou.com%2Frest%2Fzt%2Fcaptcha%2Fsliding%2Fconfig&bizName=ANTICRAWL_DEFAULT",
+                "ztUnionVerifyJsSdkUrl": "//static.yximgs.com/udata/pkg/fe/indentity-verification.umd.f6645615.js",
+                "ztIdVerifyType": 2,
+                "ztUnionVerifyStartResultCode": 400002,
+                "host-name": "public-bjy-c34-kce-node3482.idchb1az2.hb1.kwaidc.com",
+                "ztUnionVerifyPayload": ""
+              },
+              "body": {
+                "__NS_hxfalcon": "HUDR_sFnX-DtsB0FXsbDPT3TMP-sk0ishB7ND_Bxe3L3K-RS7eNsXai_ut5POQayfk4twoEaCZi52Qvk2IT0zmpjb_OtO8KEdgwI4YxbBVQWtmsiu3BGqZ7ljcDE-yd94VTQFFbMSfEiPzu2FPQ1TiQbETHvK50pbjNtJ-bUlhQif$HE_061980e4e61f2374ecd44caec796527bb34c4d4d4d4c92d5e1f756916ff910e83e24d44cd61b7397361b73a54d",
+                "caver": "2",
+                "liveStreamId": "HXnFHeQKE6w"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "url": "https://live.kuaishou.com/live_api/liveroom/websocketinfo?__NS_hxfalcon=HUDR_sFnX-DtsB0FXsbDPT3TMP-sk0ishB7ND_Bxe3L3K-RS7eNsXai_ut5POQayfk4twoEaCZi52Qvk2IT0zmpjb_OtO8KEdgwI4YxbBVQWtmsiu3BGqZ7ljcDE-yd94VTQFFbMSfEiPzu2FPQ1TiQbETHvK50pbjNtJ-bUlhQif$HE_061980e4e61f2374ecd44caec796527bb34c4d4d4d4c92d5e1f756916ff910e83e24d44cd61b7397361b73a54d&caver=2&liveStreamId=HXnFHeQKE6w",
+      "method": "GET",
+      "query_params": {
+        "__NS_hxfalcon": "HUDR_sFnX-DtsB0FXsbDPT3TMP-sk0ishB7ND_Bxe3L3K-RS7eNsXai_ut5POQayfk4twoEaCZi52Qvk2IT0zmpjb_OtO8KEdgwI4YxbBVQWtmsiu3BGqZ7ljcDE-yd94VTQFFbMSfEiPzu2FPQ1TiQbETHvK50pbjNtJ-bUlhQif$HE_061980e4e61f2374ecd44caec796527bb34c4d4d4d4c92d5e1f756916ff910e83e24d44cd61b7397361b73a54d",
+        "caver": "2",
+        "liveStreamId": "HXnFHeQKE6w"
+      },
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "identity-verification-type": "2",
+        "referer": "https://live.kuaishou.com/u/xiyuan520025",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "kww": "PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+jPA80G0+SPfclGApfPBP7+/c980H9+/LE+Bc9G/GIGfH7P0D78eb0+0pSG0cI+fzjPBGM+n8D+0Gh+/PAPeDA+epfPAPl80L78/L78/PI8BQSPnPIG9G7GAPU+/QDP0G=",
+        "identity-verification-token": "HEADCgp6dC5jYXB0Y2hhEssCD9fnZ1j6y5GyNgRYU5cZwns2J55C9uu-L5tnFOzTt0xETj9Mj1XkDP4dJtWnOK1OsFaQoedM_UfTqaxZIIEzQyoSj8qnIKvu6P1IoNa4QZo0uBMvTyzDtcoUhVrX2bGLlhsihvBwF8k97JJpdACNR2XS9wy0BowRPwWWTnwBYq_LG3suJd8I4WNfHpjN4G1yukI_vGiG0oXyY60D7mqxYKiZbBN-KqPuTeAuWNjctT_f5Yr6SuB-IO9JbIv4vrahbmkFzOYv5YGFAOxz7KZ0YqpD1gVXzO98TDucutaYAtmYaI2_pgeFnkydufyeDnT_3axgzYNmtM8GBnFA6eamzvNBbjC2jEaqU6scac3m-dtw_Z1lXwBK_EylEJpE6RvfXdmcxw4qi2I24CuEr1dnU4b3S5oZRTiBe-Sqs5UkaTf0NbM20WuWrmO-3RoS54ssUG9lohNGVZAr9FBgG9oLKAUwAgTAIL"
+      },
+      "cookies": {
+        "kuaishou.live.bfb1s": "ac5f27b3b62895859c4c1622f49856a4",
+        "clientid": "3",
+        "did": "web_f00449397a1b35f3ba7ed6e1d32a07fdf66e",
+        "client_key": "65890b29",
+        "kpn": "GAME_ZONE",
+        "_did": "web_939815456F50D74D",
+        "kwpsecproductname": "verification-captcha",
+        "kwssectoken": "8erbKq93MiRBnm3QUMAwbdTSvLEUX2/ywhvzqoZeePR4IzLYSPopJNlpmc/QL6dDKVbdRFtwZpcMuU+k26sAQA==",
+        "kwscode": "4edb255b6a4abf408282d5383588890b8ff5de73e7945d25cee7d313be58bcfe",
+        "kwfv1": "PnGU+9+Y8008S+nH0U+0mjPf8fP08f+98f+nLlwnrIP9+jPA80G0+SPfclGApfPBP7+/c980H9+/LE+Bc9G/GIG0D9+ePM+/cFGADAP/W9P9HAPAQf+0W7+eGMweZ7+BLFPBcUPAQ0G04S+0L7G/QY+eZ9Pf8D+e4S8emYPeSj+0WEwncF+9pDG9L7PnLMPAbYGAzf+AH78npfG/qM8nHIPc=="
+      },
+      "session_page_id": "\"SiRBVCXdY9Pxs7xH_1759346520032\"",
+      "response": {
+        "status": 200,
+        "headers": {
+          "x-ksclient-ip": "42.94.54.203",
+          "content-length": "361",
+          "date": "Wed, 01 Oct 2025 19:22:12 GMT",
+          "x-kslogid": "759346532172313609",
+          "content-type": "application/json; charset=utf-8",
+          "connection": "keep-alive"
+        },
+        "body": {
+          "data": {
+            "result": 1,
+            "token": "0px3EthcAnL+TDlAm5CYW5IzcjW7Ixoqonh8cQE9Q7T2hv7ZF5wRAR771wFzUoWuZuaU8zQELSEz3qnj7wGM3GlOHGzKOV2YRX+QPB/Lkgpjrk+f7zh4e+Qy6VioySSzRc3vLqnyTdKID35FjPXCf7c0NEf2GURfTaYclkRfx4H3mCrHS4Xo1pdJp0CETO/tdBD1fU2pTsWmXhUuP3lGAg==",
+            "websocketUrls": [
+              "wss://livejs-ws-group10.gifshow.com/websocket",
+              "wss://live-ws-group10.kuaishou.com/websocket"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "timestamp": "20251002_032219"
+}
